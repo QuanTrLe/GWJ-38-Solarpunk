@@ -1,0 +1,259 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
+[ext_resource path="res://Globe/Globe.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Buildings/Solar_buildings/Cards/Solar_1_card.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Buildings/Industry_buildings/Cards/Industry_2_card.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Buildings/Industry_buildings/Cards/Industry_1_card.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Buildings/Solar_buildings/Cards/Solar_2_card.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Buildings/Solar_buildings/Buildings/Solar_1_building.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Buildings/Cancel/Card/Cancel_card.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Buildings/Industry_buildings/Buildings/Industry_2_building.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Buildings/Solar_buildings/Buildings/Solar_2_building.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Buildings/Industry_buildings/Buildings/Industry_1_building.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Buildings/Cancel/Instance/Cancel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Font/rainyhearts.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Scenes/World/Control2.gd" type="Script" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 13 )
+
+[node name="World" type="Node2D" groups=[
+"World",
+]]
+script = ExtResource( 1 )
+Solar_1 = ExtResource( 7 )
+Solar_2 = ExtResource( 10 )
+Industry_1 = ExtResource( 11 )
+Industry_2 = ExtResource( 9 )
+Cancel = ExtResource( 12 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time_left" type="Label" parent="Control"]
+margin_top = 8.0
+margin_right = 1024.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Time left:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Money" type="Label" parent="Control"]
+margin_left = -1.0
+margin_top = 56.0
+margin_right = 256.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Money:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Green" type="Label" parent="Control"]
+margin_left = 723.0
+margin_top = 56.0
+margin_right = 1016.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Green:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" type="Label" parent="Control"]
+margin_left = 432.0
+margin_top = 480.0
+margin_right = 589.0
+margin_bottom = 499.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "DELETE  BUILDINGS"
+
+[node name="Solar_1" type="Label" parent="Control"]
+margin_left = 8.0
+margin_top = 528.0
+margin_right = 148.0
+margin_bottom = 591.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Building 1: cost 60
+12 money/4 sec
+20 green/4 sec"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Solar_2" type="Label" parent="Control"]
+margin_left = 280.0
+margin_top = 528.0
+margin_right = 432.0
+margin_bottom = 591.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Building 2: cost 250
+80 money/6 sec
+45 green/6 sec"
+
+[node name="Industry_1" type="Label" parent="Control"]
+margin_left = 576.0
+margin_top = 528.0
+margin_right = 716.0
+margin_bottom = 591.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Building 3: cost 15
+15 money/4 sec
+-15 green/4 sec"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Industry_2" type="Label" parent="Control"]
+margin_left = 840.0
+margin_top = 520.0
+margin_right = 988.0
+margin_bottom = 583.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Building 4: cost 150
+65 money/6 sec
+-35 green/6 sec"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Globe" parent="." instance=ExtResource( 2 )]
+position = Vector2( 504, 256 )
+
+[node name="Cards" type="Node2D" parent="."]
+
+[node name="Solar_1_card" parent="Cards" instance=ExtResource( 3 )]
+position = Vector2( 96, 496 )
+
+[node name="Solar_2_card" parent="Cards" instance=ExtResource( 6 )]
+position = Vector2( 368, 496 )
+
+[node name="Industry_1_card" parent="Cards" instance=ExtResource( 5 )]
+position = Vector2( 640, 488 )
+
+[node name="Industry_2_card" parent="Cards" instance=ExtResource( 4 )]
+position = Vector2( 912, 480 )
+
+[node name="Cancel_card" parent="Cards" instance=ExtResource( 8 )]
+position = Vector2( 504, 560 )
+
+[node name="Control2" type="Control" parent="."]
+pause_mode = 2
+margin_right = 1024.0
+margin_bottom = 600.0
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control2"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Welcome" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -200.0
+margin_top = 24.0
+margin_right = 206.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "CACULATED GREENNESS"
+
+[node name="Explains" type="Label" parent="Control2"]
+margin_left = -8.0
+margin_top = 64.0
+margin_right = 1010.0
+margin_bottom = 102.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Here you are a planet building planner!"
+align = 1
+
+[node name="Explains2" type="Label" parent="Control2"]
+margin_left = 24.0
+margin_top = 216.0
+margin_right = 408.0
+margin_bottom = 480.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You have 4 buildings 
+and 2 goals, 
+	profit and being eco-friendly!"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explains3" type="Label" parent="Control2"]
+margin_left = 672.0
+margin_top = 208.0
+margin_right = 1056.0
+margin_bottom = 472.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Left click to choose 
+Right click to cancel
+Place buildings 
+There's a time limit!"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explains4" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -240.0
+margin_top = -104.0
+margin_right = 232.0
+margin_bottom = -64.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Left click to start the game!"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[editable path="Globe"]

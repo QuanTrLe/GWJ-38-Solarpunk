@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Autoloads/Global.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Finished/Finished.tscn" type="PackedScene" id=2]
+
+[node name="Global" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+finished = ExtResource( 2 )
+
+[node name="Time_limit" type="Timer" parent="."]
+wait_time = 0.001
+one_shot = true
+
+[connection signal="timeout" from="Time_limit" to="." method="_on_Time_limit_timeout"]
